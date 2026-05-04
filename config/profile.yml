@@ -1,0 +1,69 @@
+# Career-Ops Profile Configuration
+# Single source of truth for personal data across all modes.
+
+candidate:
+  full_name: "Ankita Divekar"
+  email: "ankitasd1411@gmail.com"
+  phone: "+91-7517443188"
+  location: "Pune, India"
+  linkedin: "linkedin.com/in/ankita-divekar"
+  portfolio_url: ""
+  github: ""
+  twitter: ""
+
+target_roles:
+  primary:
+    - "HRBP / HR Business Partner"
+    - "HR Manager"
+    - "AI-Native HR Lead"
+  archetypes:
+    - name: "HRBP / HR Business Partner"
+      level: "Senior"
+      fit: "primary"
+    - name: "HR Manager"
+      level: "Senior"
+      fit: "primary"
+    - name: "AI-Native HR Lead"
+      level: "Senior/Head"
+      fit: "primary"
+    - name: "People Partner"
+      level: "Senior"
+      fit: "secondary"
+    - name: "Head of People / VP People"
+      level: "Head"
+      fit: "adjacent"
+
+narrative:
+  headline: "I build AI workflows that other HR people just talk about"
+  exit_story: "5 years spanning a Series B drone-tech startup and a 500-person firm through a full merger. Built HR from scratch, automated workflows saving 20+ hours/month, and cut attrition from 15+ to 3. Now targeting roles where AI-native HR is a strategic advantage, not a buzzword."
+  superpowers:
+    - "AI workflow automation in HR (n8n, Claude, Lovable, Cursor)"
+    - "Org design and HRBP at scale (30 to 500+ people)"
+    - "Full-cycle talent acquisition — 35+ hires in 6 months"
+    - "Global mobility — US H1B, AU, SG, KSA, zero errors"
+    - "Merger absorption and compliance — zero audit gaps across 4 years"
+  proof_points:
+    - name: "FlytBase — HR from scratch"
+      hero_metric: "35+ hires in 6 months, attrition cut from 15+ to 3"
+    - name: "Emergys — Merger onboarding"
+      hero_metric: "120 employees onboarded in a single day, zero errors"
+    - name: "AI automation"
+      hero_metric: "Saved 8+ hours/week at FlytBase, 20+ hours/month at Emergys"
+    - name: "Teemlie"
+      hero_metric: "Co-created AI-driven talent platform"
+
+compensation:
+  target_range: "25-35 LPA INR (or equivalent ~$30K-42K USD)"
+  currency: "INR"
+  minimum: "20 LPA INR"
+  location_flexibility: "Remote-first strongly preferred; open to hybrid or on-site pan-India"
+
+location:
+  country: "India"
+  city: "Pune"
+  timezone: "IST (UTC+5:30)"
+  visa_status: "Indian citizen — open to remote global roles"
+  onsite_availability: "Flexible — open to travel or relocation for the right role"
+
+cv:
+  output_format: "html"

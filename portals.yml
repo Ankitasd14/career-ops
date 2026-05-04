@@ -1,0 +1,364 @@
+# Portal Scanner Configuration — Ankita Divekar
+# Target: HRBP / HR Manager / AI-Native HR Lead
+# Market: India (remote-first) + global remote
+#
+# Strategy (3 levels):
+#   1. Playwright → careers_url of each company (real-time)
+#   2. ATS APIs → structured JSON where available
+#   3. WebSearch with site: filters → broad discovery
+
+title_filter:
+  positive:
+    # Core HRBP / HR roles
+    - "HRBP"
+    - "HR Business Partner"
+    - "HR Manager"
+    - "Senior HR Manager"
+    - "HR Lead"
+    - "HR Director"
+    - "Human Resources Manager"
+    # People roles
+    - "People Partner"
+    - "People Operations"
+    - "People & Culture"
+    - "People Manager"
+    - "People Success"
+    - "Head of People"
+    - "VP People"
+    - "VP of People"
+    - "Director of People"
+    - "Chief People Officer"
+    - "CPO"
+    # Employee Experience / Relations
+    - "Employee Experience"
+    - "Employee Relations"
+    # Talent (senior context)
+    - "Talent Management"
+    - "Talent Partner"
+    - "Head of Talent"
+    # HR Tech / AI HR
+    - "HR Technology"
+    - "HR Tech"
+    - "AI HR"
+    - "HR Automation"
+    # Org & Workforce
+    - "Org Design"
+    - "Workforce Planning"
+    - "Compensation & Benefits"
+    - "Total Rewards"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Internship"
+    - "Entry Level"
+    - "Fresher"
+    - "HR Coordinator"
+    - "HR Assistant"
+    - "HR Executive"       # usually junior in India
+    - "HR Recruiter"
+    - "Technical Recruiter"
+    - "Talent Sourcer"
+    - "Sourcer"
+    - "Software Engineer"
+    - "Data Engineer"
+    - "Product Manager"
+    - "Engineering Manager"
+    - "Finance Manager"
+  seniority_boost:
+    - "Senior"
+    - "Head"
+    - "Lead"
+    - "Director"
+    - "VP"
+    - "Manager"
+    - "Principal"
+    - "Strategic"
+    - "Global"
+
+search_queries:
+  # -- Indian job boards (HR-specific) --
+
+  - name: iimjobs — HRBP Senior
+    query: 'site:iimjobs.com "HR Business Partner" OR "HRBP" senior OR manager'
+    enabled: true
+
+  - name: iimjobs — HR Manager / People Partner
+    query: 'site:iimjobs.com "HR Manager" OR "People Partner" OR "Head of People"'
+    enabled: true
+
+  - name: iimjobs — AI Native HR / HR Tech
+    query: 'site:iimjobs.com "HR Technology" OR "AI HR" OR "People Operations" remote OR hybrid'
+    enabled: true
+
+  - name: Instahyre — Senior HR India
+    query: 'site:instahyre.com "HRBP" OR "HR Manager" OR "People Partner" senior'
+    enabled: true
+
+  - name: Cutshort — Senior HR Startups India
+    query: 'site:cutshort.io "HR Business Partner" OR "HR Manager" OR "People Partner" remote OR hybrid'
+    enabled: true
+
+  - name: Wellfound — People / HR Startups
+    query: 'site:wellfound.com "HR Manager" OR "People Partner" OR "HRBP" OR "Head of People" India remote'
+    enabled: true
+
+  # -- ATS boards (global, also used by Indian companies) --
+
+  - name: Greenhouse — HRBP / People roles
+    query: 'site:job-boards.greenhouse.io "HR Business Partner" OR "HRBP" OR "People Partner" OR "HR Manager"'
+    enabled: true
+
+  - name: Ashby — People Partner / HR roles
+    query: 'site:jobs.ashbyhq.com "People Partner" OR "HR Manager" OR "HRBP" OR "Head of People"'
+    enabled: true
+
+  - name: Lever — HR / People roles
+    query: 'site:jobs.lever.co "HR Business Partner" OR "People Partner" OR "HR Manager" OR "HRBP"'
+    enabled: true
+
+  # -- Global remote HR roles --
+
+  - name: Remote.com — HR roles global
+    query: 'site:remote.com/jobs "HR Business Partner" OR "People Partner" OR "HR Manager" remote'
+    enabled: true
+
+  - name: WeWorkRemotely — People Ops / HR
+    query: 'site:weworkremotely.com "HR" OR "People Operations" OR "HRBP" OR "People Partner" remote'
+    enabled: true
+
+  - name: Himalayas — Remote HR / People roles
+    query: 'site:himalayas.app "HR Business Partner" OR "People Partner" OR "HR Manager" remote'
+    enabled: true
+
+  # -- AI-native HR roles --
+
+  - name: AI-native HR — Global remote
+    query: '"AI HR" OR "HR Automation" "People Partner" OR "HRBP" OR "HR Manager" remote India'
+    enabled: true
+
+  - name: HR Tech companies — People roles
+    query: '"People Operations" OR "HRBP" site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com "India" OR "remote" OR "global"'
+    enabled: true
+
+tracked_companies:
+
+  # -- Indian tech unicorns / high-growth startups --
+
+  - name: Razorpay
+    careers_url: https://razorpay.com/jobs/
+    scan_method: websearch
+    scan_query: '"Razorpay" "HRBP" OR "HR Business Partner" OR "People Partner" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: CRED
+    careers_url: https://www.cred.club/careers
+    scan_method: websearch
+    scan_query: '"CRED" "HR" OR "People Partner" OR "HRBP" site:iimjobs.com OR site:wellfound.com'
+    enabled: true
+
+  - name: Meesho
+    careers_url: https://meesho.io/careers
+    scan_method: websearch
+    scan_query: '"Meesho" "HR" OR "People Partner" OR "HRBP" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: PhonePe
+    careers_url: https://phonepe.com/en/careers.html
+    scan_method: websearch
+    scan_query: '"PhonePe" "HRBP" OR "HR Business Partner" OR "People Partner" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: Swiggy
+    careers_url: https://careers.swiggy.com
+    scan_method: websearch
+    scan_query: '"Swiggy" "HRBP" OR "HR Manager" OR "People Partner" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: Zomato
+    careers_url: https://www.zomato.com/careers
+    scan_method: websearch
+    scan_query: '"Zomato" "HR" OR "People Partner" OR "HRBP" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: Zepto
+    careers_url: https://www.zeptonow.com/careers
+    scan_method: websearch
+    scan_query: '"Zepto" "HR" OR "People Partner" OR "HRBP" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: Flipkart
+    careers_url: https://www.flipkartcareers.com/
+    scan_method: websearch
+    scan_query: '"Flipkart" "HRBP" OR "HR Business Partner" OR "People Partner" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: BrowserStack
+    careers_url: https://www.browserstack.com/careers
+    scan_method: websearch
+    scan_query: '"BrowserStack" "HR Manager" OR "HRBP" OR "People Partner" site:iimjobs.com OR site:jobs.ashbyhq.com'
+    enabled: true
+
+  - name: Postman
+    careers_url: https://www.postman.com/company/careers/
+    scan_method: websearch
+    scan_query: '"Postman" "HR" OR "People Partner" OR "HRBP" site:job-boards.greenhouse.io'
+    enabled: true
+
+  - name: Freshworks
+    careers_url: https://www.freshworks.com/company/careers/
+    scan_method: websearch
+    scan_query: '"Freshworks" "HRBP" OR "HR Business Partner" OR "People Partner" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: Groww
+    careers_url: https://groww.in/careers
+    scan_method: websearch
+    scan_query: '"Groww" "HR" OR "People Partner" OR "HRBP" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: slice
+    careers_url: https://www.sliceit.com/careers
+    scan_method: websearch
+    scan_query: '"slice" OR "sliceit" "HR" OR "People" OR "HRBP" site:iimjobs.com OR site:wellfound.com'
+    enabled: true
+
+  - name: Lenskart
+    careers_url: https://www.lenskart.com/careers.html
+    scan_method: websearch
+    scan_query: '"Lenskart" "HRBP" OR "HR Manager" OR "People Partner" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  # -- HR Tech companies (Ankita's home turf) --
+
+  - name: Darwinbox
+    careers_url: https://darwinbox.com/careers
+    scan_method: websearch
+    scan_query: '"Darwinbox" "HR" OR "People" OR "HRBP" site:iimjobs.com OR site:jobs.ashbyhq.com'
+    notes: "Ankita uses Darwinbox — knows the product well."
+    enabled: true
+
+  - name: Keka HR
+    careers_url: https://www.keka.com/careers/
+    scan_method: websearch
+    scan_query: '"Keka" "HR" OR "People" OR "Customer Success" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  - name: Leena AI
+    careers_url: https://leena.ai/careers
+    scan_method: websearch
+    scan_query: '"Leena AI" "HR" OR "People" OR "Customer Success" site:iimjobs.com OR site:linkedin.com'
+    notes: "AI-native HR automation platform."
+    enabled: true
+
+  - name: HROne
+    careers_url: https://hrone.cloud/careers/
+    scan_method: websearch
+    scan_query: '"HROne" "HR" OR "People" site:iimjobs.com OR site:linkedin.com'
+    enabled: true
+
+  # -- Global HR platforms (remote-friendly, India presence) --
+
+  - name: Rippling
+    careers_url: https://www.rippling.com/careers
+    scan_method: websearch
+    scan_query: '"Rippling" "HR" OR "People Partner" OR "HRBP" site:job-boards.greenhouse.io'
+    notes: "HR/IT/Finance platform. India office in Bangalore."
+    enabled: true
+
+  - name: Deel
+    careers_url: https://www.deel.com/careers
+    scan_method: websearch
+    scan_query: '"Deel" "HRBP" OR "HR Business Partner" OR "People Partner" site:jobs.ashbyhq.com OR site:linkedin.com'
+    notes: "Global HR and payroll. Remote-first. India hiring."
+    enabled: true
+
+  - name: Remote.com
+    careers_url: https://remote.com/careers
+    scan_method: websearch
+    scan_query: '"Remote" "HRBP" OR "People Partner" OR "HR Manager" site:jobs.ashbyhq.com'
+    notes: "Global employment platform. Fully remote."
+    enabled: true
+
+  - name: Lattice
+    careers_url: https://jobs.ashbyhq.com/lattice
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/lattice "HR" OR "People" OR "HRBP"'
+    notes: "HR performance management SaaS."
+    enabled: true
+
+  - name: Culture Amp
+    careers_url: https://www.cultureamp.com/careers
+    scan_method: websearch
+    scan_query: '"Culture Amp" "HR" OR "People" OR "HRBP" site:jobs.ashbyhq.com OR site:job-boards.greenhouse.io'
+    notes: "Employee feedback and people analytics."
+    enabled: true
+
+  - name: Leapsome
+    careers_url: https://www.leapsome.com/about/careers
+    scan_method: websearch
+    scan_query: '"Leapsome" "HR" OR "People" OR "HRBP" site:jobs.ashbyhq.com OR site:linkedin.com'
+    notes: "Berlin-based HR/performance platform. Remote-friendly."
+    enabled: true
+
+  # -- Global tech companies with India HR roles --
+
+  - name: Stripe
+    careers_url: https://stripe.com/jobs
+    scan_method: websearch
+    scan_query: 'site:stripe.com/jobs "HR Business Partner" OR "People Partner" OR "HRBP" India OR remote'
+    enabled: true
+
+  - name: Notion
+    careers_url: https://www.notion.so/careers
+    scan_method: websearch
+    scan_query: '"Notion" "HR" OR "People Partner" OR "HRBP" site:job-boards.greenhouse.io'
+    enabled: true
+
+  - name: Anthropic
+    careers_url: https://job-boards.greenhouse.io/anthropic
+    api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+    notes: "AI lab. People team growing rapidly."
+    enabled: true
+
+  - name: OpenAI
+    careers_url: https://openai.com/careers
+    scan_method: websearch
+    scan_query: 'site:openai.com/careers "HR Business Partner" OR "People Partner" OR "HRBP"'
+    enabled: true
+
+  - name: Loom
+    careers_url: https://jobs.ashbyhq.com/loom
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/loom "HR" OR "People"'
+    notes: "Now part of Atlassian. Remote-first."
+    enabled: true
+
+  - name: GitLab
+    careers_url: https://about.gitlab.com/jobs/
+    scan_method: websearch
+    scan_query: '"GitLab" "HRBP" OR "People Partner" OR "HR Business Partner" site:job-boards.greenhouse.io'
+    notes: "Fully remote. Large distributed People team."
+    enabled: true
+
+  - name: Automattic
+    careers_url: https://automattic.com/work-with-us/
+    scan_method: websearch
+    scan_query: '"Automattic" "HR" OR "People" OR "HRBP" site:job-boards.greenhouse.io OR site:linkedin.com'
+    notes: "WordPress parent. 100% remote. Global hiring."
+    enabled: true
+
+  # -- Drone / deep tech (Ankita's current domain) --
+
+  - name: ideaForge
+    careers_url: https://ideaforge.in/careers/
+    scan_method: websearch
+    scan_query: '"ideaForge" "HR" OR "People" OR "HRBP" site:iimjobs.com OR site:linkedin.com'
+    notes: "Indian drone tech — similar to FlytBase, Ankita's current domain."
+    enabled: true
+
+  - name: Garuda Aerospace
+    careers_url: https://www.garudaaerospace.com/careers
+    scan_method: websearch
+    scan_query: '"Garuda Aerospace" "HR" OR "People" site:iimjobs.com OR site:linkedin.com'
+    notes: "Indian drone startup. Chennai-based."
+    enabled: true
